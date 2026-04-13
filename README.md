@@ -11,6 +11,6 @@ pytest -v test/test_serial.py
 ## UDP tests:
 * **Mock mode** is a default mode
 * Use command below to run for mock device:
-pytest -v test/test_udp.py
+* pytest -v test/test_udp.py
 * Use command below to run for real device:
-\$env:MODE="real"; WS_URL=ws://localhost:8080; pytest -v test/test_udp.py
+* \$env:MODE="real"; WS_URL=ws://localhost:8080; pytest -v test/test_udp.py
