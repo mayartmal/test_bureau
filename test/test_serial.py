@@ -1,9 +1,11 @@
+import os
 import pytest
 from core.serial_device import SerialDevice
 
 @pytest.fixture()
 def serial_device():
-    dev = SerialDevice(port="COM1")
+    port  = os.getenv("PORT", "COM1")
+    dev = SerialDevice(port=port)
     dev.connect()
     yield dev
     dev.disconnect()
