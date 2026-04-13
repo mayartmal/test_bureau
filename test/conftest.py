@@ -1,7 +1,10 @@
 import os
-import pytest
 from unittest.mock import patch
+
+import pytest
+
 from core.serial_device import SerialDevice
+
 
 class FakeSerial:
     def __init__(self, *args, **kwargs):
@@ -20,6 +23,7 @@ class FakeSerial:
     def close(self):
         self.is_open = False
 
+
 @pytest.fixture()
 def serial_device():
     mode = os.getenv("MODE", "mock")
@@ -30,7 +34,7 @@ def serial_device():
             yield dev
             dev.disconnect()
     else:
-        port  = os.getenv("PORT", "COM1")
+        port = os.getenv("PORT", "COM1")
         dev = SerialDevice(port=port)
         dev.connect()
         yield dev
