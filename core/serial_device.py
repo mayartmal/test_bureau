@@ -2,7 +2,7 @@ import serial
 
 
 class SerialDevice:
-    def __init__(self, port, rate: int = 9600, timeout: int = 10):
+    def __init__(self, port: str, rate: int = 9600, timeout: int = 10):
         self.port = port
         self.rate = rate
         self.timeout = timeout
