@@ -23,7 +23,7 @@ class SerialDevice:
         if not self.conn or not self.conn.is_open:
             raise ConnectionError("There is no connection")
         self.conn.write(f"{cmd}\n".encode("utf-8"))
-        return self.conn.readLine().decode("utf-8").strip()
+        return self.conn.readline().decode("utf-8").strip()
 
     def get_v(self) -> str:
         return self._send_cmd("GET_V")
