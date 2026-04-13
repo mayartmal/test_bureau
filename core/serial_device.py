@@ -2,7 +2,7 @@ import serial
 
 
 class SerialDevice:
-    def __init__(self, port, rate = 9600, timeout = 10):
+    def __init__(self, port, rate: int = 9600, timeout: int = 10):
         self.port = port
         self.rate = rate
         self.timeout = timeout
@@ -19,7 +19,7 @@ class SerialDevice:
         if self.conn and self.conn.is_open:
             self.conn.close()
 
-    def _send_cmd(self, cmd) -> str:
+    def _send_cmd(self, cmd: str) -> str:
         if not self.conn or not self.conn.is_open:
             raise ConnectionError("There is no connection")
         self.conn.write(f"{cmd}\n".encode("utf-8"))
